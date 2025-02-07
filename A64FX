@@ -1,0 +1,16 @@
+The modules loaded for the GNU compiler are: openmpi/gcc13.1.0, scalapack/gcc13/armpl22.1/openmpi, and openblas/gcc13. The fortran, C, and C++ compilers were mpif90, mpicc, and mpicxx, respectively.
+Here are the compiler flags used:
+    set(CMAKE_Fortran_COMPILER mpif90 CACHE STRING "")
+    set(CMAKE_Fortran_FLAGS "-Ofast -Wall -mtune=a64fx -mcpu=a64fx
+    -march=armv8.2-a+sve -fopt-info-vec -fopenmp
+    -fallow-argument-mismatch -ffree-line-length-none" CACHE STRING "")
+    set(Fortran_MIN_FLAGS "-O0 -ffree-line-length-none" CACHE STRING "")
+    set(CMAKE_C_COMPILER mpicc CACHE STRING "")
+    set(CMAKE_C_FLAGS "-Ofast -Wall -mtune=a64fx -mcpu=a64fx
+    -march=armv8.2-a+sve -fopt-info-vec -fopenmp" CACHE STRING "")
+    set(CMAKE_CXX_COMPILER mpicxx CACHE STRING "")
+    set(CMAKE_CXX_FLAGS "-Ofast -Wall -mtune=a64fx -mcpu=a64fx
+    -march=armv8.2-a+sve -fopt-info-vec -fopenmp" CACHE STRING "")
+    set(LIB_PATHS "/lustre/software/scalapack/gcc13/armpl22.1/2.2.0/lib/" "/lustre/software/openblas/gcc13/0.3.21/lib/" CACHE STRING "" FORCE)
+    set(LIBS "scalapack openblas" CACHE STRING "" FORCE)
+
