@@ -1,0 +1,20 @@
+The modules loaded for the ARM compiler are: arm-modules/23.10, armpl/23.10.0, scalapack/arm23/2.2.0, and openblas/arm21/0.3.20. The fortran, C, and C++ compilers were mpif90, mpicc, and mpicxx, respectively.
+Here are the compiler flags used:
+    set(CMAKE_Fortran_COMPILER mpif90 CACHE STRING "")
+    set(Fortran_MIN_FLAGS "-O0" CACHE STRING "")
+    set(CMAKE_Fortran_FLAGS "-O3 -ffp-contract=fast -Wall 
+    -Rpass=loop-vectorize -march=armv8.2-a+sve -mcpu=a64fx -armpl
+    -fopenmp -ffree-line-length-none" CACHE STRING "")
+    set(CMAKE_C_COMPILER mpicc CACHE STRING "")
+    set(CMAKE_C_FLAGS "-Ofast -ffp-contract=fast -Wall 
+    -Rpass=loop-vectorize -march=armv8.2-a+sve -mcpu=a64fx
+    -armpl -fopenmp" CACHE STRING "")
+    set(CMAKE_CXX_COMPILER mpicxx CACHE STRING "")
+    set(CMAKE_CXX_FLAGS "-Ofast -ffp-contract=fast -Wall
+    -Rpass=loop-vectorize -march=armv8.2-a+sve -mcpu=a64fx 
+    -armpl -fopenmp" CACHE STRING "")
+    set(LIB_PATHS 
+    "/lustre/software/scalapack/arm22.1/armpl22.1/2.2.0/lib/" 
+    "/lustre/software/openblas/arm21/0.3.20/lib/" CACHE STRING "")
+    set(LIBS "scalapack" "openblas" CACHE STRING "")
+
