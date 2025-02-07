@@ -1,0 +1,14 @@
+The modules loaded for the GNU compiler are: gcc/10.2.0, openblas/0.3.21-gcc10.2.0, openmpi/4.0.5-gcc10.2.0, and sclapack/2.1.0. The fortran, C, and C++ compilers were mpifort, mpicc, and mpicxx, respectively.
+Here are the compiler flags used:
+    set(CMAKE_Fortran_COMPILER mpifort CACHE STRING "")
+    set(CMAKE_Fortran_FLAGS "-O2 -fallow-argument-mismatch
+    -ffree-line-length-none" CACHE STRING "")
+    set(Fortran_MIN_FLAGS "-O0 -ffree-line-length-none" CACHE STRING "")
+    set(CMAKE_C_COMPILER mpicc CACHE STRING "")
+    set(CMAKE_C_FLAGS "-O2" CACHE STRING "")
+    set(CMAKE_CXX_COMPILER mpicxx CACHE STRING "")
+    set(CMAKE_CXX_FLAGS "-O2" CACHE STRING "")
+    set(LIB_PATHS "/opt/packages/scalapack/2.1.0-openblas/lib" 
+    "/jet/packages/openblas/gcc/0.3.23-gcc8.2.0/lib/" CACHE STRING "")
+    set(LIBS "scalapack" "openblas" CACHE STRING "")
+
